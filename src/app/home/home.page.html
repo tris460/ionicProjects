@@ -24,9 +24,9 @@
     </ion-item>
     <h4>{{fruit}}</h4>
     <ion-button (click)="addFruit()">Add Fruit</ion-button>
-    <ion-list *ngFor="let fruitAux of fruitList">
+    <ion-list *ngFor="let fruitAux of fruitList; let i = index" (click)="deleteFruit(i)">
       <ion-item>
-        <ion-label>{{fruitAux}}</ion-label>
+        <ion-label>{{i+1}}° {{fruitAux}}</ion-label>
       </ion-item>
     </ion-list>
   </div>

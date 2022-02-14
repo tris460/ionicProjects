@@ -42,4 +42,7 @@ export class HomePage {
       console.error('Put a valid fruit');
     }
   }
+  deleteFruit(index) {
+    this.fruitList.splice(index, 1);
+  }
 }
