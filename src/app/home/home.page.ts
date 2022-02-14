@@ -11,13 +11,15 @@ export class HomePage {
   greet: string;
   addition: number;
   fruit: string;
-  fruitList: string[];
+  fruitList: any[];
+  price: number;
 
   constructor(public alert: AlertController) {
     this.greet = 'Hello world!';
     this.addition = this.sum(11, 12);
     this.fruit = '';
     this.fruitList = [];
+    this.price = 0;
   }
 
   // Declare functions
@@ -35,9 +37,14 @@ export class HomePage {
     await addAlert.present();
   }
   addFruit() {
-    if (this.fruit !== '' && !this.fruitList.includes(this.fruit)) {
-      this.fruitList.push(this.fruit);
+    if (this.fruit !== '' && !this.fruitList.includes(this.fruit) && this.price > 0) {
+      const newFruit = {
+        name: this.fruit,
+        price: this.price
+      };
+      this.fruitList.push(newFruit);
       this.fruit = '';
+      this.price = 0;
     } else {
       console.error('Put a valid fruit');
     }
