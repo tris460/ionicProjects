@@ -24,5 +24,10 @@
     </ion-item>
     <h4>{{fruit}}</h4>
     <ion-button (click)="addFruit()">Add Fruit</ion-button>
+    <ion-list *ngFor="let fruitAux of fruitList">
+      <ion-item>
+        <ion-label>{{fruitAux}}</ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

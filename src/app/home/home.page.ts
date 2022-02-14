@@ -37,7 +37,6 @@ export class HomePage {
   addFruit() {
     if (this.fruit !== '' && !this.fruitList.includes(this.fruit)) {
       this.fruitList.push(this.fruit);
-      console.log(this.fruitList);
       this.fruit = '';
     } else {
       console.error('Put a valid fruit');
