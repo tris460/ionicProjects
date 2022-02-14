@@ -30,7 +30,10 @@
     <ion-button (click)="addFruit()">Add Fruit</ion-button>
     <ion-list *ngFor="let fruitAux of fruitList; let i = index" (click)="deleteFruit(i)">
       <ion-item>
-        <ion-label>{{i+1}}° {{fruitAux.name}} - ${{fruitAux.price}}</ion-label>
+        <ion-label>{{i+1}}° {{fruitAux.name}}</ion-label>
+        <ion-label>${{fruitAux.price}}</ion-label>
+        <ion-label *ngIf="fruitAux.price >= 60">Premium</ion-label>
+        <ion-label *ngIf="fruitAux.price < 60">Premiumn't</ion-label>
       </ion-item>
     </ion-list>
   </div>
