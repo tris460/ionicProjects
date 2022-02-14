@@ -35,7 +35,7 @@ export class HomePage {
     await addAlert.present();
   }
   addFruit() {
-    if (this.fruit !== '') {
+    if (this.fruit !== '' && !this.fruitList.includes(this.fruit)) {
       this.fruitList.push(this.fruit);
       console.log(this.fruitList);
       this.fruit = '';
