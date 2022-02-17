@@ -49,7 +49,9 @@ export class HomePage {
       this.showAlert('Error', 'Ha ocurrido un problema', 'Debe llenar los campos requeridos', ['OK']);
     }
   }
-  deleteContact() {}
+  deleteContact(i) {
+    this.contacts.splice(i, 1);
+  }
   togglePressed() {
     if(this.flag) {
       this.flag = false;
