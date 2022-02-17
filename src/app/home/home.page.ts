@@ -13,12 +13,14 @@ export class HomePage {
   email: string;
   note: string;
   contacts: any[];
+  flag: boolean;
 
   constructor(public alert: AlertController) {
     this.name='';
     this.email='';
     this.note='';
     this.contacts=[];
+    this.flag=true;
   }
 
   // Declare functions
@@ -47,5 +49,12 @@ export class HomePage {
       this.showAlert('Error', 'Ha ocurrido un problema', 'Debe llenar los campos requeridos', ['OK']);
     }
   }
-  deleteContact(){}
+  deleteContact() {}
+  togglePressed() {
+    if(this.flag) {
+      this.flag = false;
+    } else {
+      this.flag = true;
+    }
+  }
 }
