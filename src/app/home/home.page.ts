@@ -52,4 +52,8 @@ export class HomePage {
   deleteFruit(index) {
     this.fruitList.splice(index, 1);
   }
+  saveContact() {
+
+  }
+  deleteContact(){}
 }

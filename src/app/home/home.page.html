@@ -9,32 +9,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title class="contact-title">Contactos</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <h1>{{greet}}</h1>
-    <ion-button (click)="showAlert()">Sum 11+12</ion-button>
-    <br><br>
-    <h1>Directivas</h1>
-    <ion-item>
-      <ion-label>Fruit</ion-label>
-      <ion-input [(ngModel)]="fruit">{{fruit}}</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Price</ion-label>
-      <ion-input [(ngModel)]="price">{{price}}</ion-input>
-    </ion-item>
-    <h4>{{fruit}}</h4>
-    <ion-button (click)="addFruit()">Add Fruit</ion-button>
-    <ion-list *ngFor="let fruitAux of fruitList; let i = index" (click)="deleteFruit(i)">
-      <ion-item>
-        <ion-label>{{i+1}}° {{fruitAux.name}}</ion-label>
-        <ion-label>${{fruitAux.price}}</ion-label>
-        <ion-label *ngIf="fruitAux.price >= 60">Premium</ion-label>
-        <ion-label *ngIf="fruitAux.price < 60">Premiumn't</ion-label>
-      </ion-item>
-    </ion-list>
+    <h1 class="container-title">Agregar contacto</h1>
+
+    <ion-input placeholder="Nombre"></ion-input>
+    <ion-input type="number" placeholder="Número"></ion-input>
+    <ion-input placeholder="Email"></ion-input>
+    <ion-input placeholder="Notas"></ion-input>
+
+    <ion-button (click)="saveContact()" class="save-contact">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
+
+    <h1 class="container-title">Mis contactos</h1>
+    <p class="no-contactos">No se han añadido contactos</p>
+    <p class="notas">Ver notas</p>
+    <ion-toggle></ion-toggle>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Numero</ion-card-subtitle>
+        <ion-card-title>Name</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Notas
+      </ion-card-content>
+      <ion-button (click)="deleteContact()" class="delete-contact">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-card>
   </div>
 </ion-content>
