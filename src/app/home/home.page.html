@@ -30,13 +30,14 @@
     <div *ngIf="contacts.length > 0">
       <p class="notas">Ver notas</p>
       <ion-toggle></ion-toggle>
-      <ion-card>
+      <ion-card *ngFor="let contact of contacts">
         <ion-card-header>
-          <ion-card-subtitle>Numero</ion-card-subtitle>
-          <ion-card-title>Name</ion-card-title>
+          <ion-card-subtitle>{{contact.telephone}}</ion-card-subtitle>
+          <ion-card-title>{{contact.name}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          Notas
+          {{contact.email}} <br>
+          {{contact.notes}}
         </ion-card-content>
         <ion-button (click)="deleteContact()" class="delete-contact">
           <ion-icon name="trash"></ion-icon>
