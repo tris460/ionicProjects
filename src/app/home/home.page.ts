@@ -8,52 +8,44 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
   // Attributes or properties are declared before constructor
-  greet: string;
-  addition: number;
-  fruit: string;
-  fruitList: any[];
-  price: number;
+  name: string;
+  telephone: number;
+  email: string;
+  note: string;
+  contacts: any[];
 
   constructor(public alert: AlertController) {
-    this.greet = 'Hello world!';
-    this.addition = this.sum(11, 12);
-    this.fruit = '';
-    this.fruitList = [];
-    this.price = 0;
+    this.name='';
+    this.email='';
+    this.note='';
+    this.contacts=[];
   }
 
   // Declare functions
-  sum(val1: number, val2: number): number {
-    const total = val1 + val2;
-    return total;
-  }
-  async showAlert() {
+  async showAlert(headerA, subheaderA, messageA, button) {
     const addAlert = await this.alert.create({
-      header: 'Operation',
-      subHeader: 'The result is:',
-      message: this.addition.toString(),
-      buttons: ['OK']
+      header: headerA,
+      subHeader: subheaderA,
+      message: messageA,
+      buttons: button
     });
     await addAlert.present();
   }
-  addFruit() {
-    if (this.fruit !== '' && !this.fruitList.includes(this.fruit) && this.price > 0) {
-      const newFruit = {
-        name: this.fruit,
-        price: this.price
-      };
-      this.fruitList.push(newFruit);
-      this.fruit = '';
-      this.price = 0;
-    } else {
-      console.error('Put a valid fruit');
-    }
-  }
-  deleteFruit(index) {
-    this.fruitList.splice(index, 1);
-  }
   saveContact() {
-
+    console.log(this.name);
+    if(this.name !== '' && this.telephone > 0 && this.email !== ''){
+      const newContact = {
+        name: this.name,
+        telephone: this.telephone,
+        email: this.email,
+        notes: this.note
+      };
+      this.contacts.push(newContact);
+      console.log(this.contacts);
+      this.showAlert('Exito', 'Contacto guardado', 'El contacto se ha guardado correctamente', ['OK']);
+    } else {
+      this.showAlert('Error', 'Ha ocurrido un problema', 'Debe llenar los campos requeridos', ['OK']);
+    }
   }
   deleteContact(){}
 }

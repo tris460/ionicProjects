@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Contactos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,10 +16,10 @@
   <div id="container">
     <h1 class="container-title">Agregar contacto</h1>
 
-    <ion-input placeholder="Nombre"></ion-input>
-    <ion-input type="number" placeholder="Número"></ion-input>
-    <ion-input placeholder="Email"></ion-input>
-    <ion-input placeholder="Notas"></ion-input>
+    <ion-input placeholder="Nombre" [(ngModel)]="name"></ion-input>
+    <ion-input placeholder="Número"[(ngModel)]="telephone"></ion-input>
+    <ion-input placeholder="Email"[(ngModel)]="email"></ion-input>
+    <ion-input placeholder="Notas"[(ngModel)]="note"></ion-input>
 
     <ion-button (click)="saveContact()" class="save-contact">
       <ion-icon name="add-circle-outline"></ion-icon>
